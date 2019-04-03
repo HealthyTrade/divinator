@@ -1,0 +1,18 @@
+f1 = open(input('input 1... ') + '.txt').readlines()
+
+f2 = open(input('input 2... ') + '.txt').readlines()
+
+output = []
+
+for i in range(len(f1)):
+    try:
+        output.append(float(f1[i].strip('\n')) / float(f2[i].strip('\n')))
+    except ZeroDivisionError:
+        output.append(0.0)
+
+mi = min(output)
+
+ma = max(output)
+
+for i in range(len(output)):
+    print((output[i] - mi)/(ma-mi) * 2 - 1)
